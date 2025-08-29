@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>UTEC – Unidad Tecnológica de Educación Continua</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin:0; padding:0; }
+
+    /* Menú móvil tipo hamburguesa */
+    .offcanvas-start { width: 220px; background-color: #001f3f; color:white; }
+    .offcanvas-start .nav-link { color:white; margin: 10px 0; }
+    .offcanvas-start .nav-link:hover { background-color: #00509e; border-radius:5px; }
+
+    /* Redes sociales flotantes izquierda */
+    .redes-flotante {
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255,255,255,0.9);
+      padding: 10px;
+      border-radius: 0 10px 10px 0;
+      z-index: 1000;
+    }
+    .redes-flotante a { display:block; font-size:24px; margin:8px 0; color:#001f3f; text-decoration:none; }
+    .redes-flotante a:hover { color:#007bff; }
+
+    /* Hero */
+    .hero { background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') center/cover no-repeat; color:white; text-align:center; padding:120px 20px; }
+    .hero h1 { font-size:2.5rem; }
+    .hero h3 { font-size:1.5rem; }
+
+    /* Footer */
+    footer { background:#001f3f; color:white; text-align:center; padding:15px; font-size:14px; margin-top:40px; }
+
+    @media (max-width:768px) {
+      .hero h1 { font-size:2rem; }
+      .hero h3 { font-size:1.2rem; }
+   }
+   </style> 
+   </head>
+    <body>
+
+<!-- Música de fondo controlada por interacción -->
+<audio id="musicaFondo" loop>
+  <source src="Music/Legends Never Die (ft. Against The Current) [OFFICIAL AUDIO]  Worlds 2017 - League of Legends - League of Legends.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio.
+</audio>
+
+<script>
+  // Reproducir música al primer clic en la página
+  let musicaIniciada = false;
+  document.addEventListener('click', () => {
+    if(!musicaIniciada){
+      document.getElementById('musicaFondo').play();
+      musicaIniciada = true;
+    }
+  }, { once: true }); // se ejecuta solo una vez
+</script>
+
+<!-- Redes sociales flotante -->
+<div class="redes-flotante">
+  <a href="https://www.facebook.com/utec.english.2025" target="_blank"><i class="bi bi-facebook"></i></a>
+  <a href="https://www.instagram.com/utec_ec/" target="_blank"><i class="bi bi-instagram"></i></a>
+  <a href="https://www.tiktok.com/@utec_english" target="_blank"><i class="bi bi-tiktok"></i></a>
+  <a href="https://www.youtube.com" target="_blank"><i class="bi bi-youtube"></i></a>
+  <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+  <a href="https://wa.me/593980008349" target="_blank"><i class="bi bi-whatsapp"></i></a>
+</div>
+
+<!-- Barra de navegación fija -->
+<nav class="navbar navbar-dark fixed-top" style="background:#001f3f; z-index:999;">
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <!-- Logo + nombre -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="FLASH/UTEC.png" alt="Logo UTEC" style="height:40px; margin-right:10px;">
+      <span style="font-weight:bold;">UTEC</span>
+    </a>
+
+    <!-- Menú -->
+    <ul class="navbar-nav ms-auto d-flex flex-row align-items-center" style="gap:20px;">
+
+      <!-- Inicio -->
+      <li class="nav-item">
+        <a class="nav-link text-white" href="UTEC.html">Inicio</a>
+      </li>
+
+      <!-- Información -->
+      <li class="nav-item dropdown">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="infoMenu" role="button">Información</a>
+        <ul class="custom-submenu">
+          <li><a href="#informacion">Quienes somos</a></li>
+          <li><a href="Equipo_de_trabajo.html">Equipo de Trabajo</a></li>
+          <li><a href="Certificacion.html">Certificación</a></li>
+        </ul>
+      </li>
+
+      <!-- Cursos -->
+      <li class="nav-item dropdown">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="cursosMenu" role="button">Cursos</a>
+        <ul class="custom-submenu">
+           <li><a href="Ingles.html">Inglés</a></li>
+           <li><a href="Programacion.html">Programación</a></li>
+           <li><a href="Ciberseguridad.html">Ciberseguridad</a></li>
+           <li><a href="Computacion.html">Computación</a></li>
+          <li><a href="Robotica.html">Robótica</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item"><a class="nav-link text-white" href="#mision">Misión y Visión</a></li>
+
+      <!-- Testimonios -->
+      <li class="nav-item dropdown">
+        <a class="nav-link text-white dropdown-toggle" href="#" id="testimoniosMenu" role="button">Galeria</a>
+        <ul class="custom-submenu">
+          <li><a href="Fotos.html">Fotos</a></li>
+          <li><a href="Videos.html">Videos</a></li>
+          <li><a href="#">Opiniones</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item"><a class="nav-link text-white" href="Contactos.html">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ESTILOS -->
+<style>
+/* Quitar estilos de Bootstrap en submenu */
+.nav-item.dropdown .custom-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%; /* aparece debajo */
+  left: 0;
+  display: none;
+  background: rgba(0,0,0,0.7); /* flotante oscuro transparente */
+  min-width: 180px;
+  z-index: 1000;
+  border-radius: 4px;
+  animation: fadeSlide 0.3s ease-in-out;
+}
+
+/* Items del submenu */
+.nav-item.dropdown .custom-submenu li a {
+  display: block;
+  padding: 8px 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-item.dropdown .custom-submenu li a:hover {
+  background: rgba(255,255,255,0.2);
+  color: #FFD700;
+}
+
+/* Mostrar submenu al pasar mouse */
+.nav-item.dropdown:hover .custom-submenu {
+  display: block;
+}
+
+/* Animación suave */
+@keyframes fadeSlide {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+
+<!-- Hero -->
+<section id="inicio" class="hero d-flex flex-column justify-content-center align-items-center">
+  <h1>APRENDER ES PARA TODOS</h1>
+  <h3>EDUCACIÓN SIN LÍMITES</h3>
+  <p>PROGRAMACIÓN • INGLÉS A1-C2 • COMPUTACIÓN Y MÁS</p>
+  <a href="#contacto" class="btn btn-primary mt-3">INSCRIBIRSE</a>
+</section>
+
+<!-- Información -->
+<section id="informacion" class="container my-5 text-center">
+  <h2>QUIENES SOMOS</h2>
+  <p style="text-align: justify; font-size: 18px;">¡Bienvenido a Unidad Tecnológica de Educación Continua! Somos un centro especializado en ofrecer una amplia variedad de cursos para todas las edades. Nuestro compromiso es brindar oportunidades de aprendizaje continuo para personas de todas las etapas de la vida. Con una amplia gama de temas y un enfoque en la excelencia académica, estamos aquí para apoyar tu crecimiento y desarrollo personal y profesional.
+Descubre nuestros programas y sumérgete en un mundo de conocimiento y crecimiento. Nuestro equipo está comprometido a proporcionarte la mejor experiencia de aprendizaje, adaptada a tus necesidades y aspiraciones.</p>
+<img src="https://scontent.fgye6-1.fna.fbcdn.net/v/t39.30808-6/481101294_596276570053604_5958142729729504917_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeEmQ8oZuN-NwK1cPF0YxJSsoL_IKFsqVuOgv8goWypW44eDxG8OVOVXBUJQwzvxjNlNHyShuQcL0UTo7hQNTBS3&_nc_ohc=c0SneapNygsQ7kNvwFrMqo_&_nc_oc=AdmbGLbAQPh_3qYhh6hVMEKYb229rnnw-YUJUPNfbzG7vk-q-u7O6z7j2yjymd2sX1Y&_nc_zt=23&_nc_ht=scontent.fgye6-1.fna&_nc_gid=3YhY75WNd5KQ69OqEd2eQg&oh=00_AfVRjDo6XF1aB3WjkgUlqSKxusYYF5ZkOxe7ho_xWaGEJQ&oe=68B0F3BB" alt="Descripción" style="max-width: 100%; height: auto;">
+
+</section>
+
+<!-- Beneficios -->
+  <section class="py-5 bg-light text-center">
+    <div class="container">
+      <h2 class="mb-4">¿Por qué elegirnos?</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="fw-bold">📚 Material Exclusivo</h5>
+              <p>Acceso a contenido actualizado y dinámico.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="fw-bold">👨‍🏫 Profesores Expertos</h5>
+              <p>Clases dictadas por docentes certificados.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="fw-bold">⏰ Flexibilidad</h5>
+              <p>Aprende a tu ritmo con horarios adaptados.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+    <!-- Cursos -->
+  <section id="cursos" class="container text-center">
+    <h2 class="mb-5" data-aos="fade-up">Nuestros Cursos</h2>
+    <p style="text-align: justify; font-size: 18px;">Ofrecemos educación accesible, práctica y de calidad en inglés, computación y programación. Modalidades presenciales y virtuales, adaptadas a tus necesidades.</p>
+    <div class="row g-4">
+      <!-- Programación -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="card h-100 shadow-sm">
+          <img src="https://i.pinimg.com/originals/fc/21/16/fc2116fb21de12a62d4b36c31bbb1e6f.gif" class="card-img-top" alt="Programación">
+          <div class="card-body">
+            <h5 class="card-title">Programación</h5>
+            <p class="card-text">Aprende desde cero hasta nivel avanzado con proyectos reales.</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProgramacion">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <!-- Inglés -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 shadow-sm">
+          <img src="https://scontent.fgye6-1.fna.fbcdn.net/v/t39.30808-6/481824249_597704399910821_3898910508317374055_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeHhLi2eY1gyOvCDoLwyCLdk6M8_ZQ-o8Wfozz9lD6jxZzC8_mDhuF0OooQslepgiIOnFazR_XMRsv0Gs3edzhXu&_nc_ohc=sqewf8FRhuMQ7kNvwHU4B02&_nc_oc=Admn3ZuerhMp_zeH_CDv6huvxrNXMIgxK1u_9zoMOVf9ERI7xEVzIoAml2WEIHH3piU&_nc_zt=23&_nc_ht=scontent.fgye6-1.fna&_nc_gid=rH7wy7vl9ndTUp9Q4xK4HA&oh=00_AfVWOUaqRSgfuVxg3Ok1JA6J1-cT3w94dL4Qp8CDh-Z0BA&oe=68B11B31" class="card-img-top" alt="Inglés">
+          <div class="card-body">
+            <h5 class="card-title">Inglés</h5>
+            <p class="card-text">Certifícate en todos los niveles A1-C1 con profesores expertos.</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalIngles">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <!-- Robótica -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm">
+          <img src="https://cdn.pixabay.com/animation/2023/04/12/16/59/16-59-39-387_512.gif" class="card-img-top" alt="Robótica">
+          <div class="card-body">
+            <h5 class="card-title">Robótica</h5>
+            <p class="card-text">Crea, diseña y programa robots de manera divertida y educativa.</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRobotica">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <!-- Cyberseguridad Fundamentales -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="card h-100 shadow-sm">
+          <img src="https://ciberseguridad.com/wp-content/uploads/2020/06/ataques-ciberseguridad-tiempo-real.gif" class="card-img-top" alt="Ciberseguridad">
+          <div class="card-body">
+            <h5 class="card-title">Cyberseguridad/ Fundamentales</h5>
+            <p class="card-text">Data Segurity, Threat Detection, Security Requirements Analysis,Cyber Security Assessment, Information Systems Security, Incident Response, Cybersecurity, Vulnerability Assessments.</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCyberseguridad">Ver más</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- EXCEL -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="card h-100 shadow-sm">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKkj2KHDFXQgpuMEIsO0chQcU6YwBjnF_OtDXky0LF1flFTNTqCyDS1NKutxcJEQ4rcmjdLBSZK6e0T8Pnd7BXlVBVecIYKSLV37viSI8mXt0ma7Lgf7i4uec4TtzeyocgT0tp1qVQZ19U/s400/picasion.com_b337012589ad6c1029ba2665f54f2132.gif" class="card-img-top" alt="Robótica">
+          <div class="card-body">
+            <h5 class="card-title">Excel Basico</h5>
+            <p class="card-text">1.Primero Pasos, 2.Elementos Basicos, 3.Manejo de datos, 4.Creacion de graficos, 5.Tablas Dinamicas, 6. Aspectos tecnicos.</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalExcel">Ver más</button>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Modal Ejemplo -->
+  <div class="modal fade" id="modalProgramacion" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Curso de Programación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <video controls style="width:100%; margin-bottom:20px;">
+            <source src="FLASH/Curso de PROGRAMACIÓN DESDE CERO ✅ 2020 _ Introducción.mp4" type="video/mp4">
+          </video>
+          <p>✔ Duración: 6 meses <br> ✔ Modalidad: Presencial y virtual <br> ✔ Certificado incluido</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal Ejemplo 2-->
+  <div class="modal fade" id="modalIngles" tabindex="-2">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Curso de Ingles</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <video controls style="width:100%; margin-bottom:20px;">
+            <source src="Imagenes/03.mp4" type="video/mp4">
+          </video>
+          <p>✔ Duración: 6 meses <br> ✔ Modalidad: Presencial y virtual <br> ✔ Certificado incluido</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal Ejemplo 3-->
+  <div class="modal fade" id="modalRobotica" tabindex="-3">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Robotica Fundamentales</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <video controls style="width:100%; margin-bottom:20px;">
+            <source src="Imagenes/robot.mp4" type="video/mp4">
+          </video>
+          <p>✔ Duración: 6 meses <br> ✔ Modalidad: Presencial y virtual <br> ✔ Certificado incluido</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Misión -->
+  <section id="mision" class="container text-center" data-aos="fade-left">
+    <h2>📌Nuestra Misión</h2>
+    <p style="text-align: justify; font-size: 18px;">La Unidad Tecnológica de Educación Continua (UTEC) tiene como misión brindar programas de capacitación, formación y actualización profesional de alta calidad, orientados a fortalecer las competencias técnicas, científicas y humanas de nuestros estudiantes. Nos comprometemos a ofrecer educación accesible, innovadora y pertinente, que responda a las demandas del sector productivo y a las necesidades de la sociedad, contribuyendo al desarrollo sostenible y al progreso personal y profesional de cada participante.</p>
+  <!-- Vision -->
+  <section id="mision" class="container text-center" data-aos="fade-left">
+    <h2>📌Nuestra Vision</h2>
+    <p style="text-align: justify; font-size: 18px;">Ser una institución líder en educación continua a nivel nacional e internacional, reconocida por su excelencia académica, innovación tecnológica y compromiso social, formando profesionales competentes que generen impacto positivo en sus comunidades y en el desarrollo del país.</p>
+ </section>
+<!-- Contacto -->
+<section id="contacto" class="mt-5">
+  <h2 class="text-center mb-4" data-aos="fade-up">Contáctanos</h2>
+  <div class="row">
+    <div class="col-md-6" data-aos="fade-right">
+      <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Tu nombre">
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Tu correo">
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Tu mensaje"></textarea>
+        </div>
+        <button class="btn btn-info w-100">Enviar</button>
+      </form>
+    </div>
+    <div class="col-md-6" data-aos="fade-left">
+<iframe src="https://www.google.com/maps/embed?pb=!4v1756478031060!6m8!1m7!1sD_5624WFx4CZJruNy1W2-A!2m2!1d-3.262789052147577!2d-79.95706056326826!3f65.76874431833576!4f-6.990229475607677!5f0.7820865974627469" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+</div>
+
+  <!-- Newsletter -->
+  <section class="container text-center mt-5" data-aos="fade-up">
+    <h2>Entérate Primero</h2>
+    <p>Suscríbete a nuestro boletín informativo</p>
+    <form class="d-flex justify-content-center">
+      <input type="email" class="form-control w-50 me-2" placeholder="Correo electrónico" required>
+      <button type="submit" class="btn btn-primary">Suscribirse</button>
+    </form>
+  </section>
+    </div>
+<!-- Pie de página -->
+    <footer id="contacto"></footer>
+ <div class="social-icons-column d-flex flex-column align-items-center mb-3"></div>
+      <a href="https://www.facebook.com/utec.english.2025" target="_blank"><i class="bi bi-facebook"></i></a>
+    <a href="https://www.instagram.com/utec_ec/" target="_blank"><i class="bi bi-instagram"></i></a>
+    <a href="https://www.tiktok.com/@utec_english" target="_blank"><i class="bi bi-tiktok"></i></a>
+    <a href="https://www.youtube.com" target="_blank"><i class="bi bi-youtube"></i></a>
+    <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <a href="https://wa.me/593980008349" target="_blank"><i class="bi bi-whatsapp"></i></a>
+    
+    <a href="#inicio">Inicio</a>
+    <a href="#Sobre-nosotros">Sobre Nosotros</a>
+    <a href="#contacto">Contactanos</a>
+    <p>Copyright © 2025 UTEC | Creado por JNLC</p>
+    </footer>
+  </footer>
+   
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS Animations -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
+  
+
+ <!-- Ventana del Chatbot -->
+
+<div id="chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 300px; max-height: 400px; background: #001f3f; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; flex-direction: column; overflow: hidden; z-index: 2000;">
+  <div id="chatbot-header" style="background: #00509e; color: #fff; font-weight: bold; padding: 10px; text-align: center;">
+    Chatbot UTEC 🤖
+  </div>
+  <div id="chatbot-messages" style="flex:1; padding: 10px; overflow-y:auto; background:#f0f0f0;">
+    <div class="bot-msg" style="margin-bottom:10px; padding:8px 12px; border-radius:15px; max-width:80%; background:#e0e0e0; align-self:flex-start;">
+      ¡Hola! Soy tu asistente del curso. Pregúntame sobre horarios, precios o ubicación.
+    </div>
+  </div>
+  <div id="chatbot-input" style="display:flex; border-top:1px solid #ccc;">
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje..." style="flex:1; padding:10px; border:none; outline:none;">
+    <button onclick="enviarMensaje()" style="padding:10px; background:#007bff; border:none; color:white; cursor:pointer;">Enviar</button>
+  </div>
+</div>
+<script>
+  const chatMessages = document.getElementById('chatbot-messages');
+  const userInput = document.getElementById('userInput');
+  let step = 0;
+  let respuestas = { nombre:'', trabajo:'', curso:'', horario:'', direccion:'Colón y Bolívar, Esquina' };
+
+  // Función para crear botones de selección
+  function crearBotones(opciones, callback){
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.flexWrap = 'wrap';
+  container.style.gap = '5px';
+  container.style.marginTop = '5px';
+  opciones.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.textContent = opt;
+    btn.style.flex = '1 1 48%';
+    btn.style.padding = '5px';
+    btn.style.border = 'none';
+    btn.style.borderRadius = '5px';
+    btn.style.cursor = 'pointer';
+    btn.style.background = '#007bff';
+    btn.style.color = 'white';
+    btn.onclick = () => { callback(opt); container.remove(); };
+    container.appendChild(btn);
+  });
+  chatMessages.appendChild(container);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+  function enviarMensaje() {
+    const text = userInput.value.trim();
+    if(step === 2 || step === 3) return; // No permite texto en pasos de botones
+  if(text==='') return;
+
+    // Mensaje del usuario
+    const userDiv = document.createElement('div');
+    userDiv.className = 'user-msg';
+    userDiv.style = "margin-bottom:10px; padding:8px 12px; border-radius:15px; max-width:80%; background:#007bff; color:white; align-self:flex-end;";
+    userDiv.textContent = text;
+    chatMessages.appendChild(userDiv);
+
+    // Respuesta del bot
+    const botDiv = document.createElement('div');
+    botDiv.className = 'bot-msg';
+    botDiv.style = "margin-bottom:10px; padding:8px 12px; border-radius:15px; max-width:80%; background:#e0e0e0; align-self:flex-start;";
+
+    if(step === 0){
+    respuestas.nombre = text;
+    botDiv.textContent = `Mucho gusto, ${text}. ¿A qué te dedicas?`;
+    step++;
+  } else if(step === 1){
+    respuestas.trabajo = text;
+    botDiv.textContent = `¡Perfecto! Selecciona el curso que te interesa:`;
+    step++;
+    setTimeout(() => {
+      crearBotones(['Programación','Inglés','Robótica','Ciberseguridad','Excel'], (curso)=>{
+        respuestas.curso = curso;
+        mostrarPreguntaHorario();
+      });
+    }, 500);
+  }
+
+  chatMessages.appendChild(botDiv);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  userInput.value='';
+  userInput.focus();
+}
+
+function mostrarPreguntaHorario(){
+  const botDiv = document.createElement('div');
+  botDiv.className = 'bot-msg';
+  botDiv.style = "margin-bottom:10px; padding:8px 12px; border-radius:15px; max-width:90%; background:#e0e0e0; align-self:flex-start;";
+  botDiv.textContent = `Ahora selecciona el horario que te conviene:`;
+  chatMessages.appendChild(botDiv);
+
+  setTimeout(() => {
+    crearBotones(['Lunes a Viernes 08:00am 11:00am','Lunes a Viernes 14:00pm 18:00pm','Sábado 08:00am 11:00am', 'Sábado 14:00pm 18:00pm'], (horario)=>{
+      respuestas.horario = horario;
+      finalizarChat();
+    });
+  }, 500);
+}
+function mostrarPreguntaHorario(){
+  const botDiv = document.createElement('div');
+  botDiv.className = 'bot-msg';
+  botDiv.style = "margin-bottom:10px; padding:8px 12px; border-radius:15px; max-width:90%; background:#e0e0e0; align-self:flex-start;";
+  botDiv.textContent = `Que modalidad desea para inscribirte:`;
+  chatMessages.appendChild(botDiv);
+
+setTimeout(() => {
+  crearBotones(['Virtual', 'Presencial'], (modalidad) => {
+    respuestas.modalidad = modalidad;
+    finalizarChat(); // o continuar al siguiente paso
+  });
+}, 500);
+}
+function finalizarChat(){
+  const botDiv = document.createElement('div');
+  botDiv.className = 'bot-msg';
+  botDiv.style = "margin-bottom:10px; padding:8px 12px; border-radius:15px; max-width:90%; background:#e0e0e0; align-self:flex-start;";
+  botDiv.innerHTML = `¡Gracias por tu información! Nuestra dirección es ${respuestas.direccion}.<br>
+  Haz clic <a href="https://wa.me/593980008349?text=Hola%20UTEC,%20mi%20nombre%20es%20${respuestas.nombre}&body=Me%20interesa%20el%20curso%20de%20${respuestas.curso}" target="_blank">aquí para inscribirte por WhatsApp</a>.`;
+  chatMessages.appendChild(botDiv);
+
+  // Enviar a Google Sheets
+  fetch("https://docs.google.com/spreadsheets/d/1JbI9MpXAEHPhHu5ckcfAyr6bwOsPrbFQMW2F9yIP7bY/edit?usp=sharing", {
+    method: "POST",
+    body: JSON.stringify(respuestas)
+  }).catch(err => console.error("Error enviando a Google Sheets:", err));
+  step = 5;
+}
+
+userInput.addEventListener('keypress', function(e){
+  if(e.key === 'Enter') enviarMensaje();
+});
+</script>
+</body>
+</html>
